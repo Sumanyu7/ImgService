@@ -130,3 +130,5 @@ dmypy.json
 
 #images uploaded
 images/*
+#So there is still an empty image folder 
+!images/.gitkeep

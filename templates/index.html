@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+	<div class="">
+		<h4 class="my-3 text-center">Select a image to upload</h4>
+		<form  method="post" enctype="multipart/form-data" >
+			<div class="my-4 row g-3">
+				<div class="col-auto">
+					<input class ="btn form-control" type="file" name="file">
+				</div>
+				<div class="col-auto">
+					<span class="form-text">
+					Must be png, jpg, jpeg or gif
+					</span>
+				</div>
+			</div>
+			<input class ="btn btn-primary" type="submit" value="Upload image">
+		</form>
+		<div class="my-3">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<ul class="flashes text-danger">
+					{% for message in messages %}
+						<p>{{ message }}</p>
+					{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}	
+		</div>
+		<hr>
+		{% for file in files %}
+			<a href="/images/{{ file }}">
+				<img src="{{ url_for('upload', filename=file) }}" style="width:128px">
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}

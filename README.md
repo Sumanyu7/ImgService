@@ -2,6 +2,7 @@
 
 A Simple Flask Application to upload and store pictures.
 
-TO RUN
-
+To Run:
+```
 python3 app.py
+```

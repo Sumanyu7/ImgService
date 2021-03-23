@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.jpeg' '.png', '.gif']
+app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
 app.config['UPLOAD_PATH'] = 'images'
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
@@ -28,7 +28,7 @@ def upload_img():
         file_ext = os.path.splitext(filename)[1]
         #if images in not in the accepted format
         if file_ext not in app.config['UPLOAD_EXTENSIONS']:
-            flash('Wrong image Extension, we accept .png, .jpeg, .jpg , .gif')
+            flash('Wrong image Extension, we accept .png, .jpg , .gif')
         else:
             image.save(os.path.join(app.config['UPLOAD_PATH'], filename))
             flash('Image successfully uploaded')
